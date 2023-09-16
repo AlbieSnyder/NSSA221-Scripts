@@ -14,23 +14,23 @@ while (userInput != 5):
 		print("You have to choose one of the options!")
 		userInput = 0
 	if userInput == 1:
-        	gateway = subprocess.check_output("ip r | head -1 | cut -d ' ' -f 3", shell=True)
-            print("Your default gateway is: " + str(gateway)[2:-3])
+		gateway = subprocess.check_output("ip r | head -1 | cut -d ' ' -f 3", shell=True)
+		print("Your default gateway is: " + str(gateway)[2:-3])
 	elif userInput == 2:
 		try:
 			subprocess.check_output("ping 0 -c 2", shell = True, stderr = subprocess.PIPE)
-			print("The test passed")
+			print("The test passed! You can ping inside your network!")
 		except subprocess.CalledProcessError as e:	
 			print("The test failed")
-    elif userInput == 3:
+	elif userInput == 3:
 		try:
 			subprocess.check_output("ping 8.8.8.8 -c 2", shell = True, stderr = subprocess.PIPE)
-			print("The test passed")
+			print("The test passed! You can ping a remote host!")
 		except subprocess.CalledProcessError as e:	
 			print("The test failed")
 	elif userInput == 4:
 		try:
 			subprocess.check_output("ping google.com -c 2", shell = True, stderr = subprocess.PIPE)
-			print("The test passed")
+			print("The test passed! You can resolve DNS queries!")
 		except subprocess.CalledProcessError as e:	
 			print("The test failed")
