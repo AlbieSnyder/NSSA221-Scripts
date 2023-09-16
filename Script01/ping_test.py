@@ -10,6 +10,6 @@ while (userInput != 5):
     userInput = int(input("What would you like to do? \n" + options + "\n"))
 
     if userInput == 1:
-        gateway = os.system("ip r | head -1 | cut -d " " -f 3")
-        print("Your default gateway is: " + gateway)
+        gateway = os.system("ip r | head -1").split()[2]
+        print("Your default gateway is: " + str(gateway))
 
